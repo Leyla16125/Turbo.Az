@@ -13,19 +13,19 @@
     <header>
         <div class="bg-[#f6f7fa] px-6 md:px-20 lg:px-60 py-2">
             <div class="container flex flex-wrap justify-center md:justify-between items-center mx-auto text-center w-full md:flex-row">
-                <ul class="space-x-4 text-[#8d94ad] text-[15px] cursor-pointer flex flex-wrap justify-center md:justify-start">
+                <ul class="space-x-4 text-[#8d94ad] text-[15px] cursor-pointer flex flex-wrap justify-center md:justify-start px-2">
                     <li><a class="hover:text-[#b91c1c]">Tap.az</a></li>
                     <li><a class="hover:text-[#b91c1c]">Bina.az</a></li>
                     <li><a class="hover:text-[#b91c1c]">Boss.az</a></li>
                 </ul>
 
-                <div class="space-x-4 text-[#8d94ad] text-[15px] cursor-pointer flex flex-wrap justify-center md:justify-end mt-2 md:mt-0">
+                <div class="space-x-4  text-[#8d94ad] text-[15px] cursor-pointer flex flex-wrap justify-center md:justify-end mt-2 md:mt-0">
                     <div class="text-black">
                         <span class="cursor-none">Dəstək:</span>
                         <a class="hover:text-[#b91c1c] cursor-pointer">(012) 526-47-47</a>
                     </div>
 
-                    <ul class="flex flex-wrap space-x-4 justify-center md:justify-end">
+                    <ul class="flex flex-wrap space-x-4 justify-center md:justify-end px-4">
                         <li><a class="hover:text-[#b91c1c]">RU</a></li>
                         <li class="hover:text-[#b91c1c] flex items-center space-x-1">
                         <i class="fa-solid fa-heart"></i><a>Seçilmişlər</a></li>
@@ -37,21 +37,123 @@
         </div>
         <div class="bg-[#b91c1c] px-6 md:px-20 lg:px-60 py-2 cursor-pointer">
             <div class="container flex flex-wrap justify-center md:justify-between items-center mx-auto md:flex-row text-center">
-                <h1 class="uppercase text-white font-bold text-[18px]">Turbo.az</h1>
-                <div class="space-x-4 cursor-pointer text-white text-[15px] flex flex-wrap gap-2 justify-center md:justify-between mt-2 md:mt-0">
-                    <a>Bütün elanlar</a>
-                    <a>Dilerlər</a>
-                    <a>Avtokataloq</a>
-                    <a>Moto</a>
-                    <a>Ehtiyat hissələr və aksesuarlar</a>
-                    <a>İcarə</a>
-                </div>
-                <a class="bg-[#7ed321] text-[#fff] text-[15px] cursor-pointer py-1.5 rounded-sm flex items-center px-3 mt-2 md:mt-0">
+                <h1 class="uppercase text-white font-bold text-[18px] px-2">Turbo.az</h1>
+                <ul class="hidden md:flex space-x-4 cursor-pointer text-white text-[15px] flex-wrap gap-2 justify-center md:justify-between mt-2 md:mt-0">
+                    <li><a class="hover:text-[#fee2e2]">Bütün elanlar</a></li>
+                    <li><a class="hover:text-[#fee2e2]">Dilerlər</a></li>
+                    <li><a class="hover:text-[#fee2e2]">Avtokataloq</a></li>
+                    <li><a class="hover:text-[#fee2e2]">Moto</a></li>
+                    <li><a class="hover:text-[#fee2e2]">Ehtiyat hissələr və aksesuarlar</a></li>
+                    <li><a class="hover:text-[#fee2e2]">İcarə</a></li>
+                </ul>
+
+                <a class="bg-[#7ed321] text-[#fff] text-[15px] cursor-pointer py-1.5 rounded-sm flex items-center px-2 mx-4 mt-2 md:mt-0">
                     <i class="fa-solid fa-plus"></i>
                     <span class="ml-2">Yeni elan</span>
                 </a>
+                <button id="bars-button" class="md:hidden ml-auto mx-4" onclick="toggleMenu()">
+                    <i class="fa-solid fa-bars" style="color: #fff;"></i>
+                </button>
+                <ul id="bars-menu" class=" w-full bg-[#b91c1c] text-white  p-2 md:hidden hidden">
+                    <li><a class="hover:text-[#fee2e2]">Bütün elanlar</a></li>
+                    <li><a class="hover:text-[#fee2e2]">Dilerlər</a></li>
+                    <li><a class="hover:text-[#fee2e2]">Avtokataloq</a></li>
+                    <li><a class="hover:text-[#fee2e2]">Moto</a></li>
+                    <li><a class="hover:text-[#fee2e2]">Ehtiyat hissələr və aksesuarlar</a></li>
+                    <li><a class="hover:text-[#fee2e2]">İcarə</a></li>
+                </ul>
+                
             </div>
         </div>
+
+        <div class="bg-[#ebedf3] px-6 md:px-20 lg:px-60 py-2">
+            <div class="container">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-2 content-center text-[13px] px-2"> 
+                    <select class="border border-[#8d94ad] bg-[#fff] border-solid h-[46px] p-2 rounded-md">
+                        <option value="">Marka</option>
+                    </select>
+                    <select class="border border-[#8d94ad] bg-[#fff] border-solid h-[46px] p-2 rounded-md">
+                        <option value="">Model</option>
+                    </select>
+
+                    <div class="flex border border-[#8d94ad] bg-[#f6f7fa] border-solid h-[46px] rounded-md overflow-hidden ">
+                        <button id="all" class="flex-1 bg-[#b91c1c] text-white font-medium py-2 px-1" onclick="red('all')">Hamısı</button>
+                        <button id="notold" class="flex-1 bg-white text-gray-600 font-medium py-2 px-1 border-l border-[#8d94ad]" onclick="red('notold')">Yeni</button>
+                        <button id="old" class="flex-1 bg-white text-gray-600 font-medium py-2 px-1 border-l border-[#8d94ad]" onclick="red('old')">Sürülmüş</button>
+                    </div>
+                    <select class="border border-[#8d94ad] bg-[#fff] border-solid h-[46px] p-2 rounded-md">
+                        <option value="">Şəhər</option>
+                    </select>
+                    <div class="flex border border-[#8d94ad] bg-[#fff] border-solid h-[46px] rounded-md overflow-hidden">
+                        <input type="text" placeholder="Qiymət, min." class="flex-1 px-3 py-2 border-none "  />
+                        <div class="w-[1px] bg-[#8d94ad]"></div>
+                        <input type="text" placeholder="maks." class="flex-1 px-3 py-2 border-none " />
+                    </div>
+                    <div class="flex justify-between ">
+                        <select class="h-[42px] border border-[#8d94ad] rounded-lg bg-white px-4 text-gray-700 ">
+                            <option>AZN</option>
+                            <option>USD</option>
+                            <option>EUR</option>
+                        </select>
+                           
+                         <button class="h-[42px] px-4 border border-[#8d94ad] rounded-lg bg-white text-gray-700 font-medium">
+                            Kredit
+                        </button>
+    
+                        <button class="h-[42px] px-4 border border-[#8d94ad] rounded-lg bg-white text-gray-700 font-medium">
+                            Barter
+                        </button>
+                    </div>
+                    <select class="border border-[#8d94ad] bg-[#fff] border-solid h-[46px] p-2 rounded-md">
+                        <option value="">Ban Növü</option>
+                    </select>
+                    <div class="flex border border-[#8d94ad] bg-[#f6f7fa] border-solid h-[46px] rounded-md overflow-hidden">
+                        <div class="relative flex-1">
+                            <select  class="year w-full h-full bg-white text-gray-700 px-4 ">
+                                <option >İl, min.</option>
+                            </select>
+                        
+                        </div>
+                    
+                        <div class="w-[1px] bg-[#8d94ad]"></div>
+                    
+                        <div class="relative flex-1">
+                            <select class="year w-full h-full bg-white text-gray-700 px-4">
+                                <option>İl, maks.</option>
+                            </select>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="flex justify-between px-2 mt-6 mb-6">
+                    <div>
+                        <span>Bu gün: <a class="text-[#4c88f9] cursor-pointer">1620 yeni elan</a></span>
+                    </div>
+                    <div class="block md:flex gap-6">
+                        <p class=" text-[#8d94ad] cursor-pointer">Sıfırla</p>
+                        <p class="text-[#ca1016] cursor-pointer">Daha çox filtr</p>
+                        <button class="bg-[#ca1016] text-[#fff] cursor-pointer text-center px-8 py-2 rounded-md">Elanları göstər</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" px-6 md:px-20 lg:px-60 py-4 bg-[#f1f5f9]">
+            <p class="font-bold uppercase mb-4">Premium elanlar</p>
+        </div>
+        
     </header>
+        
+    <div class=" px-6 md:px-20 lg:px-60 py-4 bg-[#f1f5f9]">
+        <div id="car-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+    </div>
+    
+    
+    
+
+    <script src="src/index.js"></script>
+    <script src="js/script.js"></script>
+    
+
 </body>
 </html>
