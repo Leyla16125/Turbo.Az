@@ -38,14 +38,6 @@ for (let i = 2025; i >= 1905; i--) {
         year.innerHTML += `<option>${i}</option>`;
     });
 }
-document.querySelectorAll(".hearts").forEach(heart => {
-    heart.onclick = function () {
-        this.classList.toggle("fa-regular");
-        this.classList.toggle("fa-solid");
-
-        this.style.color = this.classList.contains("fa-solid") ? "#b91c1c" : "#fff";
-    };
-});
 
 
 // const yeniMarka = []
