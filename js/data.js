@@ -827,31 +827,3 @@ const data = [
     },
   ]
   
-const carList = document.getElementById("car-list");
-
-function showCars() {
-    let carsHTML = ""; 
-
-    for (let i = 0; i < data.length; i++) {
-        carsHTML += `
-            <div class="bg-white rounded-lg shadow-md overflow-hidden transition hover:shadow-lg">
-                <div class="relative">
-                    <img class="w-full h-48 object-cover" src="${data[i].images[0]}" alt="${data[i].brand} ${data[i].model}">
-                    <div class="absolute top-2 right-2 p-1 rounded-full shadow">
-                    <i class="hearts fa-regular fa-heart fa-xl" style="color: #fff;"></i>
-                        
-                    </div>
-                </div>
-                <div class="p-3">
-                    <h3 class="text-lg font-bold">${data[i].price} ${data[i].currency}</h3>
-                    <p class="text-gray-700">${data[i].brand} ${data[i].model}</p>
-                    <p class="text-gray-500 text-sm">${data[i].year}, ${data[i].engine} L, ${data[i].odometer} ${data[i].odometerUnit}</p>
-                    <p class="text-gray-400 text-xs">${data[i].city}, ${data[i].dates}</p>
-                </div>
-            </div>
-        `;
-    }
-    carList.innerHTML = carsHTML;
-}
-
-showCars();
