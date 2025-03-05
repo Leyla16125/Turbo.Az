@@ -1,4 +1,4 @@
-const data = [
+let data = [
     {
       brand: "Abarth",
       model: "Seltos",
@@ -826,4 +826,4 @@ const data = [
       dates: " Bu gün  14:30",
     },
   ]
-  
+  const extraData = [  ...data   ]

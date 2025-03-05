@@ -8,11 +8,12 @@ const marka = document.getElementById("marka")
 const model = document.getElementById("model")
 const city = document.getElementById("city")
 const banType = document.getElementById ("banType")
-const modelArr = Array.from(new Set (data.map (item => item.model))) 
-const markaArr = Array.from(new Set (data.map (item => item.brand)))
-const cityArr = Array.from(new Set (data.map (item => item.city))) 
-const banTypeArr = Array.from(new Set (data.map (item => item.banType))) 
-
+const selects = document.querySelectorAll('select');
+const markaArr = Array.from(new Set(data.map((item, i) => { return item.brand }))).sort()
+const modelArr = Array.from(new Set(data.map(item => item.model)));
+const cityArr = Array.from(new Set(data.map(item => item.city))).sort();
+const banTypeArr = Array.from(new Set(data.map(item => item.banType))).sort();
+// const ilArr = Array.from(new Set(data.map(item => item.year))).sort();
 
 
 
@@ -54,10 +55,29 @@ for (let i = 2025; i >= 1905; i--) {
 
 // })
 
-function handleSelect(){
+function selOpt(){
     modelArr.map( item => {model.innerHTML += `<option>${item}</option>`})
     markaArr.map( item => {marka.innerHTML += `<option>${item}</option>`})
     cityArr.map( item => {city.innerHTML += `<option>${item}</option>`})
     banTypeArr.map( item => {banType.innerHTML += `<option>${item}</option>`})
 }
-handleSelect()
+selOpt()
+
+function handleSelect(xana) {
+    const elem = xana.name;    
+    const value = xana.value;  
+  
+    data = extraData.filter(item => item[elem] == value);
+    showCars();
+  }
+  
+  function resetFilters() {
+    marka.value = "";
+    model.value = "";
+    city.value = "";
+    banType.value = "";
+  
+    data = extraData;
+    showCars();
+  }
+  

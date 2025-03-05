@@ -26,7 +26,7 @@ function showCars() {
 
     carList.innerHTML = carsHTML;
 
-    likeFeature();
+    // likeFeature();
 }
 
 showCars();
@@ -43,16 +43,15 @@ function addmore() {
     showCars(); 
 }
 
-function likeFeature() {
-    let hearts = document.querySelectorAll(".hearts"); 
+// function likeFeature() {
+//     let hearts = document.querySelectorAll(".hearts"); 
 
-    for (let i = 0; i < hearts.length; i++) {
-        hearts[i].onclick = function () {
-            this.classList.toggle("fa-regular");
-            this.classList.toggle("fa-solid");
+//     for (let i = 0; i < hearts.length; i++) {
+//         hearts[i].onclick = function () {
+//             this.classList.toggle("fa-regular");
+//             this.classList.toggle("fa-solid");
 
-            this.style.color = this.classList.contains("fa-solid") ? "#b91c1c" : "#fff";
-        };
-    }
-}
-
+//             this.style.color = this.classList.contains("fa-solid") ? "#b91c1c" : "#fff";
+//         };
+//     }
+// }
